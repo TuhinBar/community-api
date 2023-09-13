@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import express, { Application } from 'express';
 import connectDB from "./config/dbConfig";
 import userRoutes from "./routes/userRoutes";
+import rolesRotes from "./routes/rolesRoutes";
 
 const app: Application = express();
 const port = process.env.PORT || 5000;
@@ -22,5 +23,6 @@ app.use(cookieParser());
 
 // Routes
 app.use("/v1", userRoutes);
+app.use("/v1", rolesRotes);
 
 
