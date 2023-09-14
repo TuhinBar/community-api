@@ -10,7 +10,7 @@ import decodeToken from "../utils/decodeToken";
 const signUp = async (req: Request, res: Response) => {
     // console.log(req.body);
     try {
-        const data: UserType = req.body;
+        const data = req.body;
 
         if(validator.isEmpty(data.name) || data.name.length < 2){
             res.json({message: "Name must be greater than 2 letters!"})
@@ -33,7 +33,7 @@ const signUp = async (req: Request, res: Response) => {
             return;
         }
         const token = generateToken(user.id);
-        const newUser = {
+        const newUser: UserType = {
             id: user.id,
             name: user.name,
             email: user.email,
@@ -55,7 +55,7 @@ const signUp = async (req: Request, res: Response) => {
 
 const signIn = async (req: Request, res: Response) => {
     try {
-        const data: UserType = req.body;
+        const data = req.body;
 
         if(!validator.isEmail(data.email) || !data.email){
             res.json({message: "Please enter a valid email!"})
@@ -79,7 +79,7 @@ const signIn = async (req: Request, res: Response) => {
         }
 
         const token = generateToken(user.id);
-        const newUser = {
+        const newUser: UserType = {
             id: user.id,
             name: user.name,
             email: user.email,
@@ -115,7 +115,7 @@ const getSingleUser = async (req: Request, res: Response) => {
         res.json({message: "User not found!"})
         return;
     }
-    const newUser = {
+    const newUser: UserType = {
         id: user.id,
         name: user.name,
         email: user.email,

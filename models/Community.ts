@@ -16,9 +16,11 @@ const communitySchema = new mongoose.Schema({
     },
     owner:{
         type: String,
-        ref: "User"  
+        ref: "User" ,
+        localField: "owner",
+        foreignField: "id",
     },
     
 },{timestamps: true});
 
-export default mongoose.model("User", communitySchema);
+export default mongoose.model("Community", communitySchema);
