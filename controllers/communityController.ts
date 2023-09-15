@@ -1,12 +1,21 @@
 import Community from "../models/Community";
 import Role from "../models/Role";
 import Member from "../models/Member";
+import validator from "validator";
 import { Request, Response } from "express";
 import { ResponseData } from "../types/ResponseType";
 
 const createCommunity = async (req: Request, res: Response) => {
   try {
     const { name } = req.body;
+
+    if (!name || validator.isEmpty(name) || name.length < 2 ) {
+      res.json({ message: "Name must be greater than 2 letters!" });
+      return;
+    }
+
+
+
     const role = await Role.findOne({ name: "Community Admin" }).select("id");
     // console.log(role);
     const community = await Community.create({

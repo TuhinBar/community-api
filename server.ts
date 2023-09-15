@@ -25,6 +25,10 @@ app.use(cookieParser());
 
 
 // Routes
+app.get("/", (req, res) => {
+  res.redirect("/v1/auth/signin");
+});
+
 app.use("/v1", userRoutes);
 app.use(checkAuth);
 app.use("/v1", rolesRotes);

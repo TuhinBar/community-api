@@ -18,7 +18,7 @@ export interface ResponseType {
  * @param {boolean} status - status of the response.
  * @param {} content - Metadata and response data.
  * @param {} meta - Response meta data e.g {access_token: string}.
- * @example const response = new ResponseData(true,{data: newUser},{access_token: token})
+ *
  * @returns ResponseData Object.
  */
 

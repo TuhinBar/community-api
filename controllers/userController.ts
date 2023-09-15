@@ -8,9 +8,13 @@ import generateToken from "../utils/generateToken";
 import decodeToken from "../utils/decodeToken";
 
 const signUp = async (req: Request, res: Response) => {
-    // console.log(req.body);
     try {
         const data = req.body;
+
+        if(!data.name || !data.email || !data.password){
+            res.json({message: "All fields are required!"})
+            return;
+        }
 
         if(validator.isEmpty(data.name) || data.name.length < 2){
             res.json({message: "Name must be greater than 2 letters!"})
@@ -56,6 +60,11 @@ const signUp = async (req: Request, res: Response) => {
 const signIn = async (req: Request, res: Response) => {
     try {
         const data = req.body;
+
+        if(!data.email || !data.password){
+            res.json({message: "All fields are required!"})
+            return;
+        }
 
         if(!validator.isEmail(data.email) || !data.email){
             res.json({message: "Please enter a valid email!"})

@@ -34,12 +34,20 @@ const createRole = async (req: Request, res: Response) => {
 
 const getRoles = async (req: Request, res: Response) => {
     try {
-        const roles = await Role.find();
+        const {page,limit} = req.query;
+        if (!page || !limit ) {
+            res.json({ message: "Page and Limit are required!" });
+            return;
+          }
+        const total = await Role.countDocuments();
+        const roles = await Role.find().limit(Number(limit)).skip((Number(page) - 1) * Number(limit)).select("-__v -_id");
         if(!roles){
             res.json({message: "Roles not found!"})
             return;
         }
-        const response = new ResponseData(true,{data: roles})
+
+        const pages = Math.ceil(total / Number(limit));
+        const response = new ResponseData(true,{meta:{total,page: Number(page),pages:pages},data: roles})
         res.status(200).json(response);
     } catch (error) {
         console.log(error);
