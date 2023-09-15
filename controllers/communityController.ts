@@ -127,7 +127,6 @@ const getAllMemebers = async (req: Request, res: Response) => {
       res.json({ message: "Page and Limit and community id are required!" });
       return;
     }
-    const total = await Member.countDocuments();
 
     const members = await Member.aggregate([
       {
@@ -197,6 +196,7 @@ const getAllMemebers = async (req: Request, res: Response) => {
         $limit: parseInt(limit as string),
       },
     ]);
+    const total = members.length;
     const pages = Math.ceil(total / parseInt(limit as string));
 
     const response = new ResponseData(true, {
