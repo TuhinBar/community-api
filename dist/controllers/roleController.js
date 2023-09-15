@@ -9,6 +9,10 @@ const ResponseType_1 = require("../types/ResponseType");
 const createRole = async (req, res) => {
     try {
         const { name } = req.body;
+        if (!name) {
+            res.json({ message: "Name is required!" });
+            return;
+        }
         if (validator_1.default.isEmpty(name) || name.length < 2) {
             res.json({ message: "Name must be greater than 2 letters!" });
             return;

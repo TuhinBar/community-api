@@ -9,6 +9,10 @@ import {RoleType} from '../types/RoleType';
 const createRole = async (req: Request, res: Response) => {
     try {
         const {name} = req.body;
+        if(!name){
+            res.json({message: "Name is required!"})
+            return;
+        }
         if(validator.isEmpty(name) || name.length < 2){
             res.json({message: "Name must be greater than 2 letters!"})
             return;
