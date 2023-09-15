@@ -3,7 +3,7 @@
 
 The CommunityAPI is built with node.js/express and TypeScript. This API is simple yet useful and a very much easy to use. With different route end points this API can handle all the CRUD operation related to a community mangement. 
 This API returns a JSON object with all the details of courses like 'Course name','Price' and 'Url' as well.
-## 😴 AS IT IS HOSTED IN A [FREE CLOUD PLATFORM](https://render.com/) , THE FIRST REQUEST CAN TAKE TIME UPTO 20s TO RESPONSE AS THE SERVER WENT TO SLEEP AFTER 5 MIN OF INACTIVITY 
+## 😴 AS IT IS HOSTED IN A [FREE CLOUD PLATFORM](https://render.com/) , THE FIRST REQUEST CAN TAKE TIME UPTO 20s TO RESPONSE AS THE SERVER GOES TO SLEEP AFTER 5 MIN OF INACTIVITY 
 ## 📎 This is just an overview. Detailed Documentation can be found [Here](https://tuhins-organization.gitbook.io/api-docs/) 
 
 ## Use Cases
