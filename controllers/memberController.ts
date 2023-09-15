@@ -4,6 +4,7 @@ import Community from '../models/Community';
 import { Request, Response } from 'express';
 import validator from 'validator';
 import { ResponseData } from '../types/ResponseType';
+import {MemberType} from '../types/MemberType';
 
 const addMember = async (req: Request, res: Response) => {
     try {
@@ -75,7 +76,7 @@ const addMember = async (req: Request, res: Response) => {
             res.json({message: "Member not created!"})
             return;
         }
-        const newMember = {
+        const newMember:MemberType = {
             id: member.id,
             community: member.community,
             user: member.user,

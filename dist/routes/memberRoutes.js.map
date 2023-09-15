@@ -1,0 +1,1 @@
+{"version":3,"file":"memberRoutes.js","sourceRoot":"","sources":["../../routes/memberRoutes.ts"],"names":[],"mappings":";;;;;AAAA,qCAAiC;AACjC,uFAA+D;AAE/D,MAAM,MAAM,GAAG,IAAA,gBAAM,GAAE,CAAC;AAExB,MAAM,CAAC,IAAI,CAAC,SAAS,EAAE,0BAAgB,CAAC,SAAS,CAAC,CAAC;AACnD,MAAM,CAAC,MAAM,CAAC,aAAa,EAAE,0BAAgB,CAAC,YAAY,CAAC,CAAC;AAG5D,kBAAe,MAAM,CAAC"}

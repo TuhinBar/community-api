@@ -4,6 +4,7 @@ import Member from "../models/Member";
 import validator from "validator";
 import { Request, Response } from "express";
 import { ResponseData } from "../types/ResponseType";
+import {CommunityType} from "../types/CommunityType";
 
 const createCommunity = async (req: Request, res: Response) => {
   try {
@@ -39,7 +40,7 @@ const createCommunity = async (req: Request, res: Response) => {
       return;
     }
 
-    const newCommunity = {
+    const newCommunity : CommunityType = {
       id: community.id,
       name: community.name,
       slug: community.slug,

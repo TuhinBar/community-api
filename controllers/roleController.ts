@@ -2,6 +2,7 @@ import Role from '../models/Role';
 import { Request, Response } from 'express';
 import validator from 'validator';
 import { ResponseData } from '../types/ResponseType';
+import {RoleType} from '../types/RoleType';
 
 
 
@@ -17,7 +18,7 @@ const createRole = async (req: Request, res: Response) => {
             res.json({message: "Role not created!"})
             return;
         }
-        const newRole = {
+        const newRole:RoleType = {
             id: role.id,
             name: role.name,
             createdAt: role.createdAt,
